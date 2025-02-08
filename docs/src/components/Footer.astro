@@ -1,0 +1,12 @@
+---
+import "../styles/global.scss";
+import { SITE_AUTHOR, GITHUB_URL, DISCORD_URL } from "../constants";
+---
+
+<footer>
+  <p>© {new Date().getFullYear()} {SITE_AUTHOR}</p>
+  <div class="footer_links">
+    <a href={DISCORD_URL}>Discord</a>
+    <a href={GITHUB_URL}>GitHub</a>
+  </div>
+</footer>
