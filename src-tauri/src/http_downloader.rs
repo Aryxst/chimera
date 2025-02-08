@@ -13,7 +13,7 @@ use std::time::Duration;
 use std::{path::PathBuf, time::Instant};
 use tauri::{AppHandle, State};
 use tauri_plugin_http::reqwest::{
-    header::{HeaderMap, HeaderName, CONTENT_TYPE, USER_AGENT},
+    header::{HeaderMap, HeaderName, HeaderValue, CONTENT_TYPE, USER_AGENT},
     redirect::Policy,
     ClientBuilder as ReqwestClient, StatusCode,
 };
@@ -98,7 +98,12 @@ pub async fn download(
         .send()
         .await?;
     let headers = response.headers();
-    let content_type = headers.get(CONTENT_TYPE).unwrap().to_str().unwrap();
+    let content_type = HeaderValue::from_static("");
+    let content_type = headers
+        .get(CONTENT_TYPE)
+        .unwrap_or(&content_type)
+        .to_str()
+        .unwrap();
     // This can occur with Gofile when the storage cap of 1000GB is reached
     if response.status() == StatusCode::TOO_MANY_REQUESTS {
         DownloadEvent::RateLimitExceeded {
