@@ -1,9 +1,9 @@
 <script lang="ts">
   import { buttonVariants } from "@/components/ui/button/index.js";
   import { cn } from "@/utils";
-  import { Pagination as PaginationPrimitive } from "bits-ui";
-  import ChevronRight from "lucide-svelte/icons/chevron-right";
   import { t } from "svelte-i18n";
+  import ChevronRight from "lucide-svelte/icons/chevron-right";
+  import { Pagination as PaginationPrimitive } from "bits-ui";
 
   let {
     ref = $bindable(null),

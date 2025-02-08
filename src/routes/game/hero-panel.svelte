@@ -6,13 +6,13 @@
   import { commands } from "@/specta-bindings";
   import { apps, games } from "@/stores";
   import { formatSeconds } from "@/utils";
-  import { formatDistanceToNow } from "date-fns";
+  import { t } from "svelte-i18n";
   import CirclePause from "lucide-svelte/icons/circle-pause";
   import CirclePlay from "lucide-svelte/icons/circle-play";
   import CirclePlus from "lucide-svelte/icons/circle-plus";
   import DownloadIcon from "lucide-svelte/icons/download";
   import SettingsIcon from "lucide-svelte/icons/settings";
-  import { t } from "svelte-i18n";
+  import { formatDistanceToNow } from "date-fns";
 
   const gameContext = getGameContext();
   const { local, packs, title, remoteId, download } = $derived(gameContext);

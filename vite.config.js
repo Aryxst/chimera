@@ -2,6 +2,7 @@ import { sveltekit } from "@sveltejs/kit/vite";
 import { execSync } from "child_process";
 import { defineConfig } from "vite";
 import pkg from "./package.json" with { type: "json" };
+
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/

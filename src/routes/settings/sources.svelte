@@ -14,13 +14,13 @@
   import { Separator } from "@/components/ui/separator";
   import { sources } from "@/stores";
   import * as Types from "@/types";
-  import CircleMinus from "lucide-svelte/icons/circle-minus";
-  import CirclePlus from "lucide-svelte/icons/circle-plus";
-  import RefreshCcw from "lucide-svelte/icons/refresh-ccw";
   import { t } from "svelte-i18n";
   import { fade, slide } from "svelte/transition";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { superForm } from "sveltekit-superforms/client";
+  import CircleMinus from "lucide-svelte/icons/circle-minus";
+  import CirclePlus from "lucide-svelte/icons/circle-plus";
+  import RefreshCcw from "lucide-svelte/icons/refresh-ccw";
 
   let temporarySource = $state<Types.Source | null>(null);
   let isRefreshing = $state(false);

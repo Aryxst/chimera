@@ -8,8 +8,8 @@
   import * as Types from "@/types";
   import { capitalize } from "@/utils";
   import { open as openDialog } from "@tauri-apps/plugin-dialog";
-  import { resetMode, setMode } from "mode-watcher";
   import { locale, locales, t } from "svelte-i18n";
+  import { resetMode, setMode } from "mode-watcher";
 </script>
 
 <div class="flex flex-col gap-4">

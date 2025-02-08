@@ -2,8 +2,8 @@
   import { BYTES_TO_MEGABYTES } from "@/constants/";
   import { downloads } from "@/stores";
   import { getCurrentWindow, ProgressBarStatus } from "@tauri-apps/api/window";
-  import { formatDuration, intervalToDuration } from "date-fns";
   import { t } from "svelte-i18n";
+  import { formatDuration, intervalToDuration } from "date-fns";
 
   const [currentDownload] = $derived(
     $downloads

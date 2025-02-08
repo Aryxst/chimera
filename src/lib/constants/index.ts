@@ -1,4 +1,5 @@
 import * as Types from "@/types";
+
 export { CHAR_MAP } from "./char-map";
 
 export enum Downloader {

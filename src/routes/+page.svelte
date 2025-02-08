@@ -1,8 +1,8 @@
 <script lang="ts">
   import { apps, appsByLetter } from "@/stores";
   import { formatTitle } from "@/utils";
-  import ky from "ky";
   import { onMount } from "svelte";
+  import ky from "ky";
 
   onMount(() => {
     if (!$apps || !appsByLetter) {

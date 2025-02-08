@@ -32,9 +32,9 @@
 <script lang="ts">
   import * as Tooltip from "@/components/ui/tooltip/index.js";
   import { cn } from "@/utils";
-  import { mergeProps, type WithElementRef, type WithoutChildrenOrChild } from "bits-ui";
   import type { ComponentProps, Snippet } from "svelte";
   import type { HTMLAttributes } from "svelte/elements";
+  import { mergeProps, type WithElementRef, type WithoutChildrenOrChild } from "bits-ui";
   import { useSidebar } from "./context.svelte.js";
 
   let {

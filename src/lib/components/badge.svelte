@@ -1,6 +1,6 @@
 <script lang="ts" module>
-  import type { WithElementRef } from "bits-ui";
   import type { HTMLAttributes } from "svelte/elements";
+  import type { WithElementRef } from "bits-ui";
   import { tv, type VariantProps } from "tailwind-variants";
 
   export const badgeVariants = tv({

@@ -10,9 +10,9 @@
   import * as Types from "@/types";
   import { getDownloaderFromUrl } from "@/utils";
   import { open as openDialog } from "@tauri-apps/plugin-dialog";
+  import { t } from "svelte-i18n";
   import CircleCheck from "lucide-svelte/icons/circle-check-big";
   import DownloadIcon from "lucide-svelte/icons/download";
-  import { t } from "svelte-i18n";
 
   interface DownloadSettingsModalProps {
     open: boolean;

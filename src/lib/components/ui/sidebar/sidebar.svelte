@@ -1,8 +1,8 @@
 <script lang="ts">
   import * as Sheet from "@/components/ui/sheet/index.js";
   import { cn } from "@/utils";
-  import type { WithElementRef } from "bits-ui";
   import type { HTMLAttributes } from "svelte/elements";
+  import type { WithElementRef } from "bits-ui";
   import { SIDEBAR_WIDTH_MOBILE } from "./constants.js";
   import { useSidebar } from "./context.svelte.js";
 

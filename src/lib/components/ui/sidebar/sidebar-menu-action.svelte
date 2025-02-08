@@ -1,8 +1,8 @@
 <script lang="ts">
   import { cn } from "@/utils";
-  import type { WithElementRef } from "bits-ui";
   import type { Snippet } from "svelte";
   import type { HTMLButtonAttributes } from "svelte/elements";
+  import type { WithElementRef } from "bits-ui";
 
   let {
     ref = $bindable(null),

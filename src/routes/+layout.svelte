@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { dev } from "$app/environment";
   import AppSidebar from "@/components/app-sidebar.svelte";
   import BottomPanel from "@/components/bottom-panel.svelte";
   import Header from "@/components/header.svelte";
   import * as Sidebar from "@/components/ui/sidebar";
   import { events } from "@/specta-bindings";
   import { games, settings } from "@/stores";
-  import { ModeWatcher } from "mode-watcher";
+  import { dev } from "$app/environment";
   import { onMount, untrack } from "svelte";
   import { init, locale, register } from "svelte-i18n";
   import { Toaster } from "svelte-sonner";
+  import { ModeWatcher } from "mode-watcher";
   import "../app.css";
 
   let { children } = $props();

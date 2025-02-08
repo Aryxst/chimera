@@ -1,8 +1,8 @@
 <script lang="ts">
   import { downloads } from "@/stores";
   import * as Types from "@/types";
-  import DownloadIcon from "lucide-svelte/icons/download";
   import { t } from "svelte-i18n";
+  import DownloadIcon from "lucide-svelte/icons/download";
   import DeleteDownloadModal from "./delete-download-modal.svelte";
   import DownloadGroup from "./download-group.svelte";
 

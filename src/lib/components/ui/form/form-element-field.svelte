@@ -1,5 +1,6 @@
 <script lang="ts" module>
   import type { FormPathLeaves as _FormPathLeaves } from "sveltekit-superforms";
+
   type T = Record<string, unknown>;
   type U = _FormPathLeaves<T>;
 </script>
@@ -9,9 +10,9 @@
   generics="T extends Record<string, unknown>, U extends _FormPathLeaves<T>"
 >
   import { cn } from "@/utils";
+  import type { HTMLAttributes } from "svelte/elements";
   import type { WithElementRef, WithoutChildren } from "bits-ui";
   import * as FormPrimitive from "formsnap";
-  import type { HTMLAttributes } from "svelte/elements";
 
   let {
     ref = $bindable(null),

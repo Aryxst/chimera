@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { page } from "$app/state";
   import * as Sidebar from "@/components/ui/sidebar";
   import { constructGameUrl } from "@/helpers";
   import { games } from "@/stores";
+  import { page } from "$app/state";
+  import { t } from "svelte-i18n";
   import Book from "lucide-svelte/icons/book";
   import DownloadIcon from "lucide-svelte/icons/download";
   import House from "lucide-svelte/icons/house";
   import LayoutGrid from "lucide-svelte/icons/layout-grid";
   import SettingsIcon from "lucide-svelte/icons/settings";
-  import { t } from "svelte-i18n";
 
   const items = $derived([
     {

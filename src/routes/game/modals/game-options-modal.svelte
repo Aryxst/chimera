@@ -8,9 +8,9 @@
   import { games } from "@/stores";
   import { open as openDialog } from "@tauri-apps/plugin-dialog";
   import { revealItemInDir } from "@tauri-apps/plugin-opener";
-  import File from "lucide-svelte/icons/file";
   import { t } from "svelte-i18n";
   import { toast } from "svelte-sonner";
+  import File from "lucide-svelte/icons/file";
 
   interface GameOptionsModalProps {
     open: boolean;

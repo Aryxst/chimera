@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { beforeNavigate, goto } from "$app/navigation";
-  import { page } from "$app/state";
   import { Input } from "@/components/ui/input";
   import { SEARCH_DEBOUNCE } from "@/constants/";
   import { isTyping, search } from "@/stores";
+  import { beforeNavigate, goto } from "$app/navigation";
+  import { page } from "$app/state";
   import { t } from "svelte-i18n";
 
   const title = () => {

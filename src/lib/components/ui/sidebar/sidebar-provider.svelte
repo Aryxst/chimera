@@ -1,8 +1,8 @@
 <script lang="ts">
   import * as Tooltip from "@/components/ui/tooltip/index.js";
   import { cn } from "@/utils";
-  import type { WithElementRef } from "bits-ui";
   import type { HTMLAttributes } from "svelte/elements";
+  import type { WithElementRef } from "bits-ui";
   import {
     SIDEBAR_COOKIE_MAX_AGE,
     SIDEBAR_COOKIE_NAME,

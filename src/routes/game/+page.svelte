@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { page } from "$app/state";
   import { SteamContentDescriptor } from "@/constants";
   import { setGameContext } from "@/context";
   import { getSteamAppDetails } from "@/services/steam";
@@ -8,6 +6,8 @@
   import * as Types from "@/types";
   import * as Steam from "@/types/steam.types";
   import { formatTitle } from "@/utils";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/state";
   import { t } from "svelte-i18n";
   import { toast } from "svelte-sonner";
   import GameDetailsContent from "./game-content.svelte";

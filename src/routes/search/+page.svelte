@@ -3,8 +3,8 @@
   import { ITEMS_PER_PAGE } from "@/constants/";
   import { constructGameUrl } from "@/helpers";
   import { apps, isTyping, search } from "@/stores";
-  import uFuzzy from "@leeoniya/ufuzzy";
   import { t } from "svelte-i18n";
+  import uFuzzy from "@leeoniya/ufuzzy";
 
   // See https://github.com/leeoniya/uFuzzy#options
   const uf = new uFuzzy({

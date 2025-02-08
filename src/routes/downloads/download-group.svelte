@@ -7,13 +7,13 @@
   import { downloads } from "@/stores";
   import * as Types from "@/types";
   import { formatBytes } from "@/utils";
+  import { t } from "svelte-i18n";
+  import { toast } from "svelte-sonner";
   import CirclePlay from "lucide-svelte/icons/circle-play";
   import CircleX from "lucide-svelte/icons/circle-x";
   import DownloadIcon from "lucide-svelte/icons/download";
   import Menu from "lucide-svelte/icons/menu";
   import Pause from "lucide-svelte/icons/pause";
-  import { t } from "svelte-i18n";
-  import { toast } from "svelte-sonner";
 
   interface DownloadGroupProps {
     title: string;
