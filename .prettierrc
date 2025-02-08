@@ -21,6 +21,20 @@
       }
     }
   ],
-  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+  "plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^@/(.*)$",
+    "^@tauri-apps/(.*)$",
+    "^\\$app(.*)$",
+    "^svelte(.*)$",
+    "^lucide-svelte(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
   "tailwindFunctions": ["tv"]
 }
