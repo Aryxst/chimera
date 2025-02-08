@@ -97,7 +97,7 @@ function createDownloadsStore() {
       case "progress": {
         store.update(state => {
           const index = state.findIndex(download => download.url === data.url);
-          state.splice(index, 1, { ...state[index], ...data });
+          state.splice(index, 1, { ...state[index], ...data, status: type });
 
           return state;
         });
@@ -217,13 +217,6 @@ function createDownloadsStore() {
         break;
       }
     }
-    store.update(state => {
-      const index = state.findIndex(download => download.url === url);
-      const download = state[index];
-      state.splice(index, 1, { ...download, status: "progress" });
-
-      return state;
-    });
   };
 
   /**
