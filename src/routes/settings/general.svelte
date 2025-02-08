@@ -4,6 +4,7 @@
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
   import * as Select from "@/components/ui/select";
+  import { APP_LANGUAGES } from "@/constants";
   import { settings } from "@/stores";
   import * as Types from "@/types";
   import { capitalize } from "@/utils";
@@ -68,10 +69,12 @@
         locale.set(value);
       }}
     >
-      <Select.Trigger class="w-[180px]">{$settings.general.locale}</Select.Trigger>
+      <Select.Trigger class="w-[180px]"
+        >{APP_LANGUAGES[$settings.general.locale].localizedName}</Select.Trigger
+      >
       <Select.Content>
-        {#each $locales as locale}
-          <Select.Item value={locale}>{locale}</Select.Item>
+        {#each Object.entries(APP_LANGUAGES) as [locale, { name, localizedName }]}
+          <Select.Item value={locale}>{name} ({localizedName})</Select.Item>
         {/each}
       </Select.Content>
     </Select.Root>

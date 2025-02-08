@@ -1,9 +1,9 @@
-import type { Downloader } from "@/constants";
+import type { AppLocale, Downloader } from "@/constants";
 import type { DownloadEvent } from "@/specta-bindings";
 
-export type AppTheme = "light" | "dark" | "system";
+export type { LocaleEntry, AppLocale } from "@/constants";
 
-export type AppLocale = "en" | "it";
+export type AppTheme = "light" | "dark" | "system";
 
 export interface AppSettings {
   general: {
