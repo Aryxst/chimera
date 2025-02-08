@@ -18,7 +18,7 @@ serde_json = "1"
 specta = "=2.0.0-rc.20"
 specta-typescript = "0.0.7"
 tauri-specta = { version = "=2.0.0-rc.20", features = ["derive", "typescript"] }
-tauri-plugin-http = "2"
+tauri-plugin-http = { version = "2", features = ["stream"] }
 tauri-plugin-dialog = "2"
 tauri-plugin-store = "2"
 tauri-plugin-single-instance = { version = "2" }
