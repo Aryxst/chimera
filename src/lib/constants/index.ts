@@ -36,6 +36,7 @@ export enum Downloader {
   Torrent,
   Gofile,
   PixelDrain,
+  BuzzHeavier,
   RealDebrid,
   Unknown,
 }
@@ -53,5 +54,6 @@ export const DOWNLOADER_NAME: Record<Downloader, string> = {
   [Downloader.Gofile]: "Gofile",
   [Downloader.PixelDrain]: "PixelDrain",
   [Downloader.RealDebrid]: "Real-Debrid",
+  [Downloader.BuzzHeavier]: "BuzzHeavier",
   [Downloader.Unknown]: "Generic HTTP",
 };

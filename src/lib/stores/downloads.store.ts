@@ -2,7 +2,7 @@ import { Downloader, DOWNLOADER_NAME } from "@/constants";
 import { GofileApi } from "@/services/hosters/gofile";
 import { commands, events } from "@/specta-bindings";
 import * as Types from "@/types";
-import { getDownloaderFromUrl } from "@/utils";
+import { getDownloaderFromUrl, transformDownloadUrl } from "@/utils";
 import { t } from "svelte-i18n";
 import { toast } from "svelte-sonner";
 import { get, writable } from "svelte/store";
@@ -36,6 +36,7 @@ function createDownloadsStore() {
     if (download) return;
 
     const downloader = getDownloaderFromUrl(url);
+    url = transformDownloadUrl(url);
 
     const listener = events.downloadEvent.listen(({ payload }) => {
       switch (payload.type) {
@@ -80,6 +81,11 @@ function createDownloadsStore() {
         let fileName = title.replace(/\s/g, "-");
 
         return commands.download(link, `${path}/${fileName}`, null);
+      }
+      case Downloader.BuzzHeavier: {
+        let fileName = title.replace(/\s/g, "-");
+
+        return commands.download(url, `${path}/${fileName}`, null);
       }
       default: {
         // TODO: Implement download for other downloaders
@@ -190,6 +196,7 @@ function createDownloadsStore() {
    * The download will restart with a "progress" status.
    */
   const resumeDownload = async (url: string) => {
+    url = transformDownloadUrl(url);
     const download = get(store).find(download => download.url === url);
     if (!download) return;
     const rangeHeader: [string, string] = [
@@ -210,6 +217,9 @@ function createDownloadsStore() {
         ]);
       }
       case Downloader.PixelDrain: {
+        return commands.download(download.url, download.path!, [rangeHeader]);
+      }
+      case Downloader.BuzzHeavier: {
         return commands.download(download.url, download.path!, [rangeHeader]);
       }
       default: {

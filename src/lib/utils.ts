@@ -60,8 +60,19 @@ export const getDownloaderFromUrl = (url: string): Downloader => {
   if (url.startsWith("magnet:")) return Downloader.Torrent;
   if (url.startsWith("https://1fichier.com")) return Downloader.RealDebrid;
   if (url.startsWith("https://pixeldrain.com")) return Downloader.PixelDrain;
+  if (url.startsWith("https://buzzheavier.com")) return Downloader.BuzzHeavier;
 
   return Downloader.Unknown;
+};
+
+export const transformDownloadUrl = (url: string) => {
+  switch (getDownloaderFromUrl(url)) {
+    case Downloader.BuzzHeavier:
+      if (!url.endsWith("/download")) url += "/download";
+      return url;
+    default:
+      return url;
+  }
 };
 
 export const formatBytes = (size: number) => {
