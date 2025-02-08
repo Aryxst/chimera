@@ -192,6 +192,10 @@ function createDownloadsStore() {
   const resumeDownload = async (url: string) => {
     const download = get(store).find(download => download.url === url);
     if (!download) return;
+    const rangeHeader: [string, string] = [
+      "Range",
+      `bytes=${download.downloaded_bytes}-`,
+    ];
 
     switch (download.downloader) {
       case Downloader.Gofile: {
@@ -201,14 +205,12 @@ function createDownloadsStore() {
         );
 
         return commands.download(link, download.path!, [
-          ["Range", `bytes=${download.downloaded_bytes}-`],
+          rangeHeader,
           ["Cookie", `accountToken=${token}`],
         ]);
       }
       case Downloader.PixelDrain: {
-        return commands.download(download.url, download.path!, [
-          ["Range", `bytes=${download.downloaded_bytes}-`],
-        ]);
+        return commands.download(download.url, download.path!, [rangeHeader]);
       }
       default: {
         // TODO: Implement resume download for other downloaders
