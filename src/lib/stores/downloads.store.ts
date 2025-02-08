@@ -68,18 +68,18 @@ function createDownloadsStore() {
       case Downloader.Gofile: {
         const token = await GofileApi.authorize();
         const link = await GofileApi.getDownloadLink(url.split("/").pop()!);
-        const filename = link.split("/").pop()!;
+        const fileName = link.split("/").pop()!;
 
-        return commands.download(link, `${path}/${filename}`, [
+        return commands.download(link, `${path}/${fileName}`, [
           ["Cookie", `accountToken=${token}`],
         ]);
       }
       case Downloader.PixelDrain: {
         const id = url.split("/").pop()!;
         const link = `https://cdn.pd5-gamedriveorg.workers.dev/api/file/${id}`;
-        let filename = title.replace(/\s/g, "-");
+        let fileName = title.replace(/\s/g, "-");
 
-        return commands.download(link, `${path}/${filename}`, null);
+        return commands.download(link, `${path}/${fileName}`, null);
       }
       default: {
         // TODO: Implement download for other downloaders
