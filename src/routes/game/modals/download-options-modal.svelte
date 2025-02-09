@@ -36,7 +36,7 @@
           onclick={() => onPackSelected(pack)}
         >
           <p class="text-wrap text-sm">{pack.title}</p>
-          {#if download && pack.uris.includes(download!.original_url)}
+          {#if download && pack.uris.find(uri => download!.original_url.startsWith(uri))}
             <Badge variant="transparent">{$t("game.last_downloaded_option")}</Badge>
           {/if}
           <p class="text-xs text-muted-foreground">
