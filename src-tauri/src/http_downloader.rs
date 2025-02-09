@@ -13,7 +13,7 @@ use std::time::Duration;
 use std::{path::PathBuf, time::Instant};
 use tauri::{AppHandle, State};
 use tauri_plugin_http::reqwest::{
-    header::{HeaderMap, HeaderName, HeaderValue, CONTENT_TYPE, USER_AGENT},
+    header::{HeaderMap, HeaderName, HeaderValue, CONTENT_DISPOSITION, CONTENT_TYPE, USER_AGENT},
     redirect::Policy,
     ClientBuilder as ReqwestClient, StatusCode,
 };
@@ -131,6 +131,28 @@ pub async fn download(
             _ => "",
         };
         dest_path.set_extension(extension);
+
+        if extension.is_empty() {
+            if let Some(content_disposition) = headers.get(CONTENT_DISPOSITION) {
+                let mut parts = content_disposition.to_str().unwrap().split("; ");
+                if parts.next() == Some("attachment") {
+                    if let Some(param) = parts.next() {
+                        let mut params = param.splitn(2, '=');
+                        if let (Some(directive), Some(value)) = (params.next(), params.next()) {
+                            let file_name = match directive {
+                                "filename" => value.trim_matches('"'),
+                                "filename*" => value.rsplit("''").next().unwrap_or(value),
+                                _ => "",
+                            };
+
+                            if !file_name.is_empty() {
+                                dest_path.set_file_name(file_name);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     let content_length = response
